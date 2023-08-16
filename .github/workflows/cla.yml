@@ -25,7 +25,7 @@ jobs:
           # This token is required only if you have configured to store the signatures in a remote repository/organization
           PERSONAL_ACCESS_TOKEN: ${{ secrets.TRPC_CLA_ACCESS_TOKEN }}
         with:
-          path-to-signatures: 'https://github.com/liuzengh/cla-database/main/signatures/test-cla/cla.json'
+          path-to-signatures: 'https://github.com/liuzengh/cla-database/blob/main/signatures/test-cla/cla.json'
           path-to-document: 'https://github.com/liuzengh/cla-database/blob/main/Tencent-Contributor-License-Agreement.md' # e.g. a CLA or a DCO document
           # branch should not be protected
           branch: 'main'
