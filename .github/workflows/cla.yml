@@ -16,12 +16,6 @@ jobs:
   CLAAssistant:
     runs-on: ubuntu-latest
     steps:
-      - name: Dump Github context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
-      - run: echo ${{ github.repository }}
-      - run: echo "xxx-yyy"
       - name: "CLA Assistant"
         if: (github.event.comment.body == 'recheck' || github.event.comment.body == 'I have read the CLA Document and I hereby sign the CLA') || github.event_name == 'pull_request_target'
         uses: contributor-assistant/github-action@v2.3.0
@@ -30,7 +24,7 @@ jobs:
           PERSONAL_ACCESS_TOKEN: ${{ secrets.TRPC_CLA_DATABASE_ACCESS_TOKEN }}
         with:
           remote-repository-name: cla-database
-          path-to-signatures: 'signatures/test-cla/cla.json'
+          path-to-signatures: 'signatures/${{ github.event.repository.name }}/cla.json'
           path-to-document: 'https://github.com/liuzengh/cla-database/blob/main/Tencent-Contributor-License-Agreement.md'
           # branch should not be protected
           branch: 'main'
