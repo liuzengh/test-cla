@@ -24,7 +24,7 @@ jobs:
           PERSONAL_ACCESS_TOKEN: ${{ secrets.TRPC_CLA_DATABASE_ACCESS_TOKEN }}
         with:
           remote-repository-name: cla-database
-          path-to-signatures: "signatures/${{ github.event.repository.name }}_${{ github.repository_id }}/cla.json"
+          path-to-signatures: "signatures/${{ github.event.repository.name }}/${{ github.repository_id }}/cla.json"
           path-to-document: 'https://github.com/liuzengh/cla-database/blob/main/Tencent-Contributor-License-Agreement.md'
           # branch should not be protected
           branch: 'main'
